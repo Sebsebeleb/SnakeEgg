@@ -10,8 +10,17 @@
         <e p="_Internal" t="Include">
           <e p="Game.cs" t="Include" />
           <e p="PlayerControls.cs" t="Include" />
+          <e p="SfxSystem.cs" t="Include" />
           <e p="Tile.cs" t="Include" />
           <e p="ToggleAnimator.cs" t="Include" />
+        </e>
+        <e p="Fabric" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="FabricSpringBoardEditor.cs" t="Include" />
+            </e>
+            <e p="FabricSpringBoard.cs" t="Include" />
+          </e>
         </e>
         <e p="Scripts" t="Include">
           <e p="SimpleCameraController.cs" t="Include" />

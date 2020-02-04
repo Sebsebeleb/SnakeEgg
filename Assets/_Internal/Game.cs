@@ -29,8 +29,8 @@ public class Game : MonoBehaviour
     private void Awake()
     {
         float h = 0;
-        float s = 0.09f;
-        float v = 0.93f;
+        float s = 0.08f;
+        float v = 0.96f;
         
         unusedColors = new List<Color>();
 

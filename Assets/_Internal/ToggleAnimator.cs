@@ -16,7 +16,7 @@ namespace _Internal
 
         private void Awake()
         {
-            toggle = GetComponent<Toggle>();
+            toggle = GetComponentInParent<Toggle>();
         }
 
         private void Update()

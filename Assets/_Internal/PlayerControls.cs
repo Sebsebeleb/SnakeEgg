@@ -3,11 +3,13 @@ using System.Linq;
 using System.Net.Http;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.Rendering.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
 
 namespace _Internal
@@ -46,16 +48,31 @@ namespace _Internal
 
             if (TouchSimulation.instance != null && TouchSimulation.instance.simulatedTouchscreen.primaryTouch.isInProgress)
             {
-                Debug.Log("TouchSimulation at: " + TouchSimulation.instance.simulatedTouchscreen.primaryTouch.position.ReadValue());
+                //Debug.Log("TouchSimulation at: " + TouchSimulation.instance.simulatedTouchscreen.primaryTouch.position.ReadValue());
                 found = true;
                 position = TouchSimulation.instance.simulatedTouchscreen.primaryTouch.position.ReadValue();
+            }
+
+            TouchControl touch;
+            touch = Touchscreen.current.primaryTouch;
+
+            if (touch.phase.ReadValue() == TouchPhase.Ended)
+            {
+                SfxSystem.ResetPitch();
             }
             
             if (Touchscreen.current.primaryTouch.isInProgress)
             {
-                Debug.Log("Touchscreen touch at: " + Touchscreen.current.primaryTouch.position.ReadValue());
+                touch = Touchscreen.current.primaryTouch;
+                //Debug.Log("Touchscreen touch at: " + Touchscreen.current.primaryTouch.position.ReadValue());
                 found = true;
                 position = Touchscreen.current.primaryTouch.position.ReadValue();
+
+               
+                if (touch.phase.ReadValue() == TouchPhase.Ended)
+                {
+                    Debug.Log("Touch ended");
+                }
             }
             
             Touchscreen.current.primaryTouch.position.ReadValue();
